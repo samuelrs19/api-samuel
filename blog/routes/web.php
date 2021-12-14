@@ -12,10 +12,14 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-$router->get('/api/v1', function () use ($router) {
-    return response()->json(['status' => '200', 'message' => 'Olá você esta usando a estrutura de rotas API Lumen.']);
+
+$router->group(['prefix' => '/api/v1'], function () use ($router) {
+
+    $router->post('/criarPlano', 'PagSeguroController@criarPlano');
+    $router->get('/session', 'PagSeguroController@getSession');
+    $router->post('/adesao', 'PagSeguroController@aderirPlano');
 });
 
-$router->get('/', function () use ($router) {
-    return response()->json(['status' => '200', 'message' => 'Olá mundo!']);
+$router->get('/formulario', function () {
+    return view("formulario", ['nome' => 'João']);
 });
