@@ -142,18 +142,20 @@ class Adesao extends Util
          * @var object $documents
          */
         'documents' => array(
-            /***
-             * Tipo de documento do comprador.
-             * 
-             * @var string $type
-             */
-            'type' => '',
-            /***
-             * CPF do comprador. Formato: Um número de 11 dígitos.
-             * 
-             * @var string $value
-             */
-            'value' => ''
+            array(
+                /***
+                 * Tipo de documento do comprador.
+                 * 
+                 * @var string $type
+                 */
+                'type' => '',
+                /***
+                 * CPF do comprador. Formato: Um número de 11 dígitos.
+                 * 
+                 * @var string $value
+                 */
+                'value' => ''
+            )
         )
     );
 

@@ -21,5 +21,5 @@ $router->group(['prefix' => '/api/v1'], function () use ($router) {
 });
 
 $router->get('/formulario', function () {
-    return view("formulario", ['nome' => 'João']);
+    return view("formulario");
 });

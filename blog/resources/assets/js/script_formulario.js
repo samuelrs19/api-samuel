@@ -58,7 +58,7 @@ $(document).ready(function () {
 
     $('#salvardados_btn').on('click', function () {
 
-        $('#retorno_adesao').html('<img id="gif" src="../resources/img/loading.gif" />');
+        $('#retorno_adesao').html('<img id="gif" src="../resources/assets/img/loading.gif" />');
 
         PagSeguroDirectPayment.createCardToken({
             cardNumber: $('#nuncartao_text').val().replace(/ /g, ""),
@@ -98,13 +98,6 @@ function criarPlano(token, hash) {
         token: token,
         hash: hash
     }, function (data) {
-
-        
-
-        data = "<pre>" + JSON.stringify(data, undefined, 2) + "</pre>";
-
-        console.log('data: ', data);
-
-        $('#retorno_adesao').html(data);
+        $('#retorno_adesao').html("<pre>" + JSON.stringify(data, undefined, 2) + "</pre>");
     });
 }

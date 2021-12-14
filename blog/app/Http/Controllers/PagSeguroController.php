@@ -150,8 +150,8 @@ class PagSeguroController extends Util
             ));
         } else if ($tipo == 'JSON') {
             $this->set('cabecalho', array(
-                'Accept: application/json',
-                'Content-Type: application/json'
+                'Content-Type: application/json',
+                'Accept: application/vnd.pagseguro.com.br.v1+json;charset=ISO-8859-1'
             ));
         }
         return $this->get('cabecalho');
@@ -214,25 +214,27 @@ class PagSeguroController extends Util
                 $this->tratarNUmeroTelefone($parametros['telefone'])['ddd'] : '';
             $this->objAdesao->sender['phone']['number'] = isset($parametros['telefone']) ?
                 $this->tratarNUmeroTelefone($parametros['telefone'])['numero'] : '';
-            $this->objAdesao->sender['documents'] = isset($parametros['cpf_cnpj']) ?
+            $this->objAdesao->sender['documents'][0] = isset($parametros['cpf_cnpj']) ?
                 $this->tratarCpfCnpj($parametros['cpf_cnpj']) : '';
             $this->objAdesao->paymentMethod['type'] = 'CREDITCARD';
             $this->objAdesao->paymentMethod['creditCard']['token'] = isset($parametros['token']) ? $parametros['token'] : '';
 
             $array = (array) $this->objAdesao->tratarObjeto();
-     
-            // $retornoReq = $this->request(
-            //     $this->endpoint('pre-approvals'),
-            //     'POST',
-            //     $this->cabecalho('JSON'),
-            //     json_encode($array, JSON_UNESCAPED_UNICODE),
-            //     30000
-            // );
 
-            echo json_encode($array, JSON_UNESCAPED_UNICODE);
-            die;
+            $retornoReq = $this->request(
+                $this->endpoint('pre-approvals'),
+                'POST',
+                $this->cabecalho('JSON'),
+                json_encode($array, JSON_UNESCAPED_UNICODE),
+                30000
+            );
+
+            // echo "<pre>";
+            // print_r($this->objAdesao->tratarObjeto());
+            // echo "</pre>";
+
+            $retornoReq = json_decode($retornoReq['response'], true);
+            return response()->json($retornoReq);
         }
-
-        return response()->json($parametros);
     }
 }
