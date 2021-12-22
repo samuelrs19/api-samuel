@@ -220,6 +220,9 @@ class PagSeguroController extends Util
             $this->objAdesao->paymentMethod['creditCard']['token'] = isset($parametros['token']) ? $parametros['token'] : '';
 
             $array = (array) $this->objAdesao->tratarObjeto();
+            
+            // return response()->json($array);
+            // die;
 
             $retornoReq = $this->request(
                 $this->endpoint('pre-approvals'),

@@ -58,7 +58,7 @@ $(document).ready(function () {
 
     $('#salvardados_btn').on('click', function () {
 
-        $('#retorno_adesao').html('<img id="gif" src="../resources/assets/img/loading.gif" />');
+        $('#retorno_adesao').html('<img id="gif" src="assets/img/loading.gif" />');
 
         PagSeguroDirectPayment.createCardToken({
             cardNumber: $('#nuncartao_text').val().replace(/ /g, ""),

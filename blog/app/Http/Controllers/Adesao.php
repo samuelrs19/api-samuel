@@ -87,14 +87,14 @@ class Adesao extends Util
              * 
              * @var string $street
              */
-            'street' => '',
+            'street' => 'Rua Vi Jose De Castro',
             /***
              * Número. 
              * Formato: Livre, com limite de 20 caracteres.
              * 
              * @var int $number
              */
-            'number' => '',
+            'number' => '99',
             /***
              * Complemento (bloco, apartamento, etc.). 
              * Formato: Livre, com limite de 40 caracteres.
@@ -108,7 +108,7 @@ class Adesao extends Util
              * 
              * @var string $district
              */
-            'district' => '',
+            'district' => 'It',
             /***
              * Cidade. 
              * Formato: Livre. 
@@ -116,27 +116,27 @@ class Adesao extends Util
              * 
              * @var string $city
              */
-            'city' => '',
+            'city' => 'Sao Paulo',
             /***
              * Estado. 
              * Formato: Duas letras, representando a sigla do estado brasileiro correspondente.
              * 
              * @var string $state
              */
-            'state' => '',
+            'state' => 'SP',
             /***
              * País.
              * 
              * @var string $country
              */
-            'country' => '',
+            'country' => 'BRA',
             /***
              * CEP. 
              * Formato: Um número de 8 dígitos..
              * 
              * @var int $postalCode
              */
-            'postalCode' => ''
+            'postalCode' => '06240300'
         ),
         /***
          * @var object $documents
@@ -164,7 +164,7 @@ class Adesao extends Util
      */
     public $paymentMethod = array(
         /***
-         *Tipo do meio de pagamento utilizado na assinatura.
+         * Tipo do meio de pagamento utilizado na assinatura.
          * 
          * @var string $type 
          */
@@ -174,12 +174,119 @@ class Adesao extends Util
          */
         'creditCard' => array(
             /***
-             *Token retornado no método Javascript PagSeguroDirectPayment.createCardToken().
+             * Token retornado no método Javascript PagSeguroDirectPayment.createCardToken().
              * 
              * @var string $token 
              */
             'token' => '',
-            'holder' =>  ''
+            /***
+             * @var object $holder
+             */
+            'holder' => array(
+                /***
+                 * Nome conforme impresso no cartão de crédito. 
+                 * Formato: No mínimo 1 e no máximo 50 caracteres.
+                 * 
+                 * @var string $name 
+                 */
+                'name' => 'teste Teste',
+                /***
+                 * Data de nascimento do dono do cartão de crédito. 
+                 * Formato: dd/MM/yyyy.
+                 * 
+                 * @var date $birthDate 
+                 */
+                'birthDate' => '04/12/1991',
+                /***
+                 * @var object $documents
+                 */
+                'documents' => array(
+                    array(
+                        /***
+                         * Tipo de documento do comprador.
+                         * 
+                         * @var string $type 
+                         */
+                        'type' => 'CPF',
+                        /***
+                         * Documento do comprador.
+                         * 
+                         * @var int $value 
+                         */
+                        'value' => '79699007044'
+                    )
+                ),
+                /***
+                 * @var object $phone
+                 */
+                'phone' => array(
+                    /***
+                     * Codigo de area do telefone do comprador.
+                     * 
+                     * @var int $areaCode 
+                     */
+                    'areaCode' => '31',
+                    /***
+                     * Numero do telefone do comprador.
+                     * 
+                     * @var int $areaCode 
+                     */
+                    'number' => '999999999'
+                ),
+                /***
+                 * @var object $billingAddress
+                 */
+                'billingAddress' => array(
+                    /***
+                     * Nome da rua.
+                     * 
+                     * @var string $street 
+                     */
+                    'street' => 'Rua Vi Jose De Castro',
+                    /***
+                     * Número do endereço do comprador.
+                     * 
+                     * @var int $number 
+                     */
+                    'number' => '99',
+                    /***
+                     * Complemento do endereço do comprador.
+                     * 
+                     * @var string $complement 
+                     */
+                    'complement' => '',
+                     /***
+                     * Bairro do endereço do comprador.
+                     * 
+                     * @var string $district 
+                     */
+                    'district' => 'It',
+                    /***
+                     * Cidade do endereço do comprador.
+                     * 
+                     * @var string $city 
+                     */
+                    'city' => 'Sao Paulo',
+                    /***
+                     * Estado do endereço do comprador.
+                     * 
+                     * @var string $state 
+                     */
+                    'state' => 'SP',
+                    /***
+                     * País do endereço do comprador.
+                     * 
+                     * @var string $country 
+                     */
+                    'country' => 'BRA',
+                    /***
+                     * CEP do endereço do comprador.
+                     * 
+                     * @var int $postalCode 
+                     */
+                    'postalCode' => '06240300'
+                )
+            )
         )
     );
 
