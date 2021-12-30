@@ -18,7 +18,7 @@ $router->group(['prefix' => '/api/v1'], function () use ($router) {
     $router->post('/criarPlano', 'PagSeguroController@criarPlano');
     $router->get('/session', 'PagSeguroController@getSession');
     $router->post('/adesao', 'PagSeguroController@aderirPlano');
-    $router->get('/webhook', 'WebHook@recebePost');
+    $router->post('/webhook', 'WebHook@recebePost');
 });
 
 $router->get('/adesao', function () {
