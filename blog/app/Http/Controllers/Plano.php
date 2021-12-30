@@ -12,7 +12,9 @@ class Plano extends Util
 
     public $redirectURL;
     public $reference;
+    public $notificationURL;
     public $preApproval = array(
+        'notificationURL' => '',
         'name' => '',
         'charge' => '',
         'period' => '',

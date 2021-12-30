@@ -24,3 +24,6 @@ $router->group(['prefix' => '/api/v1'], function () use ($router) {
 $router->get('/adesao', function () {
     return view("adesao");
 });
+$router->get('/criarplano', function () {
+    return view("criarplano");
+});

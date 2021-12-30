@@ -183,6 +183,8 @@ class PagSeguroController extends Util
             $this->objPlano->preApproval['amountPerPayment'] = isset($parametros['valor']) ? $parametros['valor'] : 0.00;
             $this->objPlano->preApproval['membershipFee'] = isset($parametros['taxa']) ? $parametros['taxa'] : 0.00;
             $this->objPlano->preApproval['details'] = isset($parametros['detalhes']) ? $parametros['detalhes'] : '';
+            //$this->objPlano->preApproval['notificationURL'] = "https://api.samuel-dev.ml/api/v1/webhook";
+            //$this->objPlano->notificationURL = "https://api.samuel-dev.ml/api/v1/webhook";
 
             $xml = $this->objPlano->tratarObjeto()->convertObjTOxml($this->objPlano);
 
@@ -205,7 +207,7 @@ class PagSeguroController extends Util
             $return['msg'] = 'Parâmetros não enviado.';
         } else {
 
-            $this->objAdesao->plan = isset($parametros['plano']) ? $parametros['plano'] : 'E4AC185C2727A69554176F9397AE74BF';
+            $this->objAdesao->plan = isset($parametros['plano']) ? $parametros['plano'] : '408EF1631E1E0AC1141C3FA948C5B1F7';
             $this->objAdesao->reference = isset($parametros['reference']) ? $parametros['reference'] : '001';
             $this->objAdesao->sender['name'] = isset($parametros['nome']) ? $parametros['nome'] : '';
             $this->objAdesao->sender['email'] = isset($parametros['email']) ? $parametros['email'] : '';
@@ -220,7 +222,7 @@ class PagSeguroController extends Util
             $this->objAdesao->paymentMethod['creditCard']['token'] = isset($parametros['token']) ? $parametros['token'] : '';
 
             $array = (array) $this->objAdesao->tratarObjeto();
-            
+
             // return response()->json($array);
             // die;
 

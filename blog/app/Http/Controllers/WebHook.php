@@ -25,9 +25,8 @@ class WebHook extends Util
         'identificador' => ''
     );
 
-    public function recebePost(Request $parametros)
+    public function recebePost()
     {
-
         $json = json_encode(app('request')->all(), JSON_UNESCAPED_UNICODE);
         $datahora = date('Y-m-d H:i:s');
 
@@ -36,7 +35,10 @@ class WebHook extends Util
                 value ('Recebimento webhook 1', '{$json}' , '{$datahora}', 10101, 'webhook')"
         );
 
-        echo "<pre>";
-        print_r($results);
+        if ($results) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
